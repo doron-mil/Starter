@@ -18,6 +18,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {RoutingModule} from './routing/routing.module';
 import { TestPage1Component } from './pages/test-page1/test-page1.component';
 import { TestPage2Component } from './pages/test-page2/test-page2.component';
+import {FormsModule} from '@angular/forms';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,6 +40,7 @@ export const translationRoot = {
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     NgbModule,
     NgReduxModule,

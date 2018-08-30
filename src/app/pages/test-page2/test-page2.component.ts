@@ -8,6 +8,8 @@ import axios from 'axios';
 })
 export class TestPage2Component implements OnInit {
 
+  httpResult: string;
+
   constructor() {
   }
 
@@ -16,10 +18,11 @@ export class TestPage2Component implements OnInit {
 
   getUsersFromServer() {
     axios.get('http://localhost:8081/users')
-      .then(function (response) {
-        console.log('***************', response);
+      .then((response) => {
+        console.log('***************', response.data.data);
+        this.httpResult = JSON.stringify(response.data);
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.error('***************', error);
       });
   }
